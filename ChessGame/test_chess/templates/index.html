@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Chess Arena</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main class="arena">
+    <section class="game-panel">
+      <div class="title-row">
+        <div>
+          <p class="eyebrow">AUTONOMOUS MATCH</p>
+          <h1>AI Chess Arena</h1>
+        </div>
+        <button id="resetButton" class="secondary-button">New game</button>
+      </div>
+
+      <div id="status" class="status">White to move</div>
+      <div id="board" class="board" aria-label="Chess board"></div>
+      <div id="result" class="result" hidden></div>
+    </section>
+
+    <aside class="controls">
+      <h2>Match setup</h2>
+      <label>Game mode</label>
+      <div class="mode-grid">
+        <button class="mode-button active" data-mode="ai-ai">AI vs AI</button>
+        <button class="mode-button" data-mode="human-ai">Human vs AI</button>
+      </div>
+
+      <div class="strength-block white-strength">
+        <label for="whiteLevel">White AI strength</label>
+        <div class="level-row"><strong id="whiteLevelValue">1500</strong><span>profile</span></div>
+        <input id="whiteLevel" type="range" min="300" max="3000" step="100" value="1500">
+      </div>
+
+      <div id="blackControls" class="strength-block">
+        <label for="blackLevel">Black AI strength</label>
+        <div class="level-row"><strong id="blackLevelValue">1500</strong><span>profile</span></div>
+        <input id="blackLevel" type="range" min="300" max="3000" step="100" value="1500">
+      </div>
+
+      <label for="speed">Move delay</label>
+      <select id="speed">
+        <option value="0">Instant</option>
+        <option value="250">Fast</option>
+        <option value="700" selected>Normal</option>
+        <option value="1200">Slow</option>
+      </select>
+
+      <button id="startButton" class="primary-button">Start match</button>
+      <button id="pauseButton" class="secondary-button" disabled>Pause</button>
+
+      <div class="move-log-panel">
+        <h3>Move log</h3>
+        <div id="moveLog" class="move-log">No moves yet</div>
+      </div>
+    </aside>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
